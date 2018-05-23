@@ -1,0 +1,53 @@
+<html>
+    <head>
+        
+        <title>html ex</title>
+        <script language="JavaqScript" type="text/javascript">
+            function  chk(){
+            var hr=new XMLHttpRequest();
+            var url="data.php;"
+            var start=document.getElementById('start').value;
+            var end=document.getElementById('end').value;
+            var vars="start="+start+"&end="+end;
+            hr.open("POST",url,true);
+            hr.setRequestHeader("content-type"); 
+              hr.onreadystatechange=function(){
+                  if(hr.readyState==4 && hr.status==200){
+                      var point=hr.responseText;
+                      
+                      alert(hr.responseText);   
+                  }
+              }
+              hr.send(vars);
+              
+            
+           }
+    
+      </Script>  
+        
+        
+
+
+
+    </head>
+    <body>
+        <form id="myForm" action="data.php" method="post">
+            start:<input type="text" id="start" name="start"/> <br/>
+            end:<input type="text" id=end name="end" /> <br/>
+            <button id="sub" onclick="return chk()">save</button>
+
+        </form>  
+      
+    
+        <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
+        
+        <script src="mscript.js" type="text/javascript"></script>
+
+
+        <p id="msg">
+            </p> 
+
+
+    </body>    
+    
+</html>
